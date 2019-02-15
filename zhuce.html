@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        a{
+            text-decoration: none;
+        }
+        li{
+            list-style: none;
+        }
+        h2{
+            width: 100%;
+            height: 40px;
+            text-align: center;
+            border-bottom: 3px solid red;
+            color: #666;
+            line-height: 40px;
+        }
+        #zhuce{
+            width: 350px;
+            height: 520px;
+            margin: 0 auto;
+            border: 1px dashed #dcdcdc;
+            font-size: 12px;
+        }
+        input{
+            display: block;
+            height: 30px;
+            text-indent: 10px;
+            font-size: 16px;
+            line-height: 30px;
+            color: #666;
+            clear: both;
+        }
+        .main{
+            padding: 20px 25px;
+            position: relative;
+        }
+        #username{
+            width: 270px;                                              
+        }
+        .sign{
+            float: right;
+            font-size: 12px;
+            margin: 10px 20px;
+        }
+        .password{
+            width: 270px;
+        }
+        #yzcode{
+            width: 150px;
+            margin-bottom: 20px;
+        }
+        .chose{
+            float: left;
+            margin-right: 20px;
+        }
+        .agree{
+            float: left;
+            line-height: 30px;
+            font-size: 12px;
+
+        }
+        #btn{
+            letter-spacing: 5px;
+            cursor: pointer;
+            font-size: 30px;
+            font-family: "Microsoft YaHei";
+            display: block;
+            width: 300px;
+            height: 45px;
+            margin: 0 auto;
+            background: red;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            clear: both;
+            margin-top: 70px;
+        }
+        .hezuo{
+            width: 270px;
+            margin: 0 25px;
+            border-top: 1px dashed #dcdcdc;
+            padding: 15px;
+            text-align: center;
+        }
+        .hezuo ul{
+            width: 240px;
+            margin-left: 20px;
+        }
+        .hezuo ul li{
+            width: 60px;
+            float: left;
+            text-align: center;
+        }
+        .hezuo ul li a{
+            font-size: 12px;
+        }
+        .picode{
+            margin-top: 10px;
+            position: absolute;
+            right: 95px;
+            top: 220px;
+        }
+        .more{
+            font-size: 12px;
+            position: absolute;
+            top: 235px;
+            right: 45px;
+        }
+        span.hide{
+            color: white;
+            float: left;
+            margin: 10px 0;
+        }
+        #zhuce .main span.error{
+            color: red;
+            float: left;
+            margin: 10px 0;
+        }
+        #zhuce .main span.success{
+            color: green;
+            float: left;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <h2>注册</h2>
+    <form id="zhuce">
+        <div class="main" id="message">
+            <input type="text" placeholder="邮箱/手机号" id="username">
+            <span class="hide">-用户名不能为空</span>
+            <em class="sign">已有账号，<a href="">立即登录</a></em>
+            <input type="password" placeholder="密码" id="password" class="password">
+            <span class="hide">-密码不能少于6个字符</span>    
+            <input type="password" placeholder="确认密码" id="comfirm" class="password">
+            <span class="hide">-两次密码必须一致</span>
+            <input type="text" placeholder="验证码" id="yzcode"><span><img class="picode" width="66" height="30" src="http://www.lingshi.com/captcha.php?663585570" alt=""><a class="more" href="">换一个</a></span>
+            <input type="checkbox" name="勾选" class="chose"><em class="agree">我已看过并接受《<a href="">中国零食网注册用户协议</a>》</em>
+            <button id="btn">注册</button>
+        </div>
+        <div class="hezuo">
+           <p>您可以使用以下合作网站账号登录</p>
+           <ul>
+               <li><a href="">新浪微博</a></li>
+               <li><a href="">QQ</a></li>
+               <li><a href="">网易</a></li>
+               <li><a href="">支付宝</a></li>
+               <li><a href="">微信</a></li>
+               <li><a href="">中国移动</a></li>
+               <li><a href="">百度</a></li>
+               <li><a href="">迅雷</a></li>
+           </ul>
+       </div>
+    </form>
+    
+    <script>
+        var username = document.getElementById("username");
+        var password = document.getElementById("password");
+        var comfirm = document.getElementById("comfirm");
+        var btn = document.getElementById("btn");
+        
+        username.addEventListener("blur",confirmUserName);
+        function confirmUserName(){
+                  var email_reg = /\S/;
+                  var username_str = username.value;
+                  var tip = username.parentNode.children[1];
+                  if(email_reg.test(username_str)){
+                        tip.className = "success";
+                  }else{
+                        tip.className = "error";
+                  }
+            }
+        password.addEventListener("blur",confirmPassWord);
+        function confirmPassWord(){
+            var password_reg = /^.{6,20}$/;
+            var password_str = password.value;
+            var tip = password.parentNode.children[4];
+            if(password_reg.test(password_str)){
+                tip.className = "success";
+            }else{
+                tip.className = "error";
+            }
+        }
+        comfirm.addEventListener("blur",confirmComfirm);
+        function confirmComfirm(){
+            var comfirm_str = comfirm.value;
+            var tip = comfirm.parentNode.children[6];
+            if(comfirm_str = password.value){
+                tip.className = "success";
+            }else{
+                tip.className = "error";
+            }
+        }
+        btn.addEventListener("click",submitForm)
+            function submitForm(evt){
+                  var e = evt || window.event;
+                  var spans = document.querySelectorAll("#zhuce span");
+                  spans = Array.from(spans);
+                  var res = spans.every(function(item){
+                        return item.className === "success";
+                  })
+
+                  if(res === false){
+                        e.preventDefault();
+                        spans.forEach(function(item){
+                              item.className = "error";
+                        })
+                  }
+            }
+
+        var xhr = new XMLHttpRequest();
+        xhr.open("GET","./select.php");
+        xhr.send(null);
+        xhr.onreadystatechange = function(){
+            if(xhr.readyState === 4 && xhr.status === 200){
+                console.log(JSON.parse(xhr.response));
+            }
+        }
+
+        btn.addEventListener("click",register);
+             function register(){
+                  var usr_value = username.value;
+                  var pwd_value = password.value;
+
+                  var url = "http://localhost/xiangmu/register.php";
+
+                  var data = {
+                        username:usr_value,
+                        password:pwd_value,
+                        admin : 123
+                  }
+                  ajaxPost(url,data)
+                  .then(function(res){
+                        console.log(res);
+                  })
+             }
+             function ajaxPost(url,data){
+                  return new Promise(function(resolve,reject){
+                        var xhr = new XMLHttpRequest();
+                        xhr.open("POST",url);
+                        xhr.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+
+                        var data_str = "?";
+                        for(var attr in data){
+                              if(data_str.length !== 1){
+                                    data_str += "&";
+                              }
+                              data_str += attr+"="+data[attr]
+                        }
+
+                        xhr.send(data);
+                        xhr.onreadystatechange = function(){
+                              if(xhr.readyState === 4 && xhr.status === 200){
+                                    resolve(xhr.response);
+                              }
+                        }
+                  })
+             }
+    </script>
+</body>
+</html>

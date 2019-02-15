@@ -190,10 +190,11 @@ body{
     overflow: hidden;
 }
 .swiper-wrapper .swiper-slide{
-    position: relative;
+    position: absolute;
     width: 1010px;
     height: 455px;
     overflow: hidden;
+    z-index: 1;
 }
 #pic2{
     width: 1010px;
@@ -220,14 +221,16 @@ body{
 .hd ul li{
     margin-bottom: 10px;
 }
-.hd ul li a img{
+.hd ul li img{
     width: 196px;
     height: 94px;
     opacity: 0.3;
 }
-.hd ul li a img:hover{
+
+.hd ul li img:hover{
     opacity: 1;
 }
+
 .list .erjicaidan{
     width: 200px;
     height: 435px;
@@ -295,6 +298,8 @@ body{
 .bg{
     background: #f7f7f7;
     padding:35px 0;
+    clear: both;
+    overflow: hidden;
 }
 .mainpart{
     width: 1200px;
@@ -670,15 +675,161 @@ body{
 ._Floor .snake_f1 .tb{
     border-top: 1px solid rgb(241, 241, 241);
 }
-.claer{
-    display: block!important;
-    float: none!important;
+.underfloor{
+    clear: both;
+    padding-top: 30px;
+}
+.recommend{
+    margin-top: 20px;
+}
+.recommend .brand{
+    width: 1200px;
+    background: #fff;
+}
+.recommend .brand li{
+    width: 131px;
+    height: 80px;
+    background: #fff;
+    border: 1px solid rgb(241, 241, 241);
+    float: left;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.recommend .brand li a{
+    display: block;
+    text-align: center;
+
+}
+.recommend .brand li a img{
+    width: 82px;
+    height: 42px;
+}
+.foot{
+    overflow: hidden;
+    margin-top: 20px;
+    padding: 20px 0 50px;
+    clear: both;
+    border-top: 10px solid rgb(241, 241, 241);
+}
+.service{
+    width: 1065px;
+    height: 55px;
+    margin: 0 auto;
+    background: url(../img/baozheng.jpg) no-repeat;
+}
+.border-x{
+    margin: 20px 0;
+    border: 1px solid rgb(241, 241, 241);
+}
+.footer_end{
+    width: 1110px;
+    margin: 10px auto;
+    padding-left: 40px;
+    color: #333;
+}
+.footer_end dl{
+    float: left;
+    width: 110px;
+    height: 127px;
+    margin-right: 20px;
+    border-right: 1px dashed #dcdcdc;
+}
+.footer_end dt{
+    font-size: 14px;
+    line-height: 26px;
+    color: #444;
+}
+.footer_end dl dd{
+    line-height: 20px;
+    font-size: 12px;
+}
+.footer_end .app{
+    width: 250px;
+    margin-left: 20px;
+}
+.footer_end .app .sp{
+    width: 219px;
+    height: 113px;
+    background: url(../img/app.png) no-repeat;
+}
+.footer_end .tel{
+    border-right: none;
+}
+.footer_end .phone{
+    width: 233px;
+    height: 121px;
+    background: url(../img/phone.png) no-repeat;
+}
+.over{
+    clear: both;
+    background: url(../img/xiegang.jpg) repeat-x;
+    padding-top: 10px;
+    margin: 20px 0 50px;
+}
+.friendweb{
+    margin: 10px auto 20px;
+    width: 1140px;
+    position: relative;
+    border-bottom: 1px solid #f2f2f2;
+    padding: 10px 0 15px;
+    overflow: hidden;
+}
+.friendweb .anniu{
+    position: absolute;
+    top: 20px;
+    right: 0;
+    display: block;
+    width: 11px;
+    height: 6px;
+}
+.blinklj{
+    display: none;
+}
+.friendweb ul li{
+    float: left;
+    margin-left: 20px;
+}
+.anniu img{
+    width: 20px;
+    height: 20px;
+}
+.mt{
+    margin-bottom: 10px;
+    height: 22px;
+    overflow: hidden;
+}
+.mt p{
+    margin: 0 auto;
+    height: 22px;
+    line-height: 22px;
+    text-align: center;
+    color: 555;
+    display: block;
+    font-size: 12px;
+}
+.mt p a{
+    margin: 0 5px;
+}
+.copy{
+    width: 1000px;
+    text-align: center;
+    margin: 0 auto;
+}
+.copy a{
+    display: block;
+    float: left;
+    margin: 0 10px;
+}
+.beian{
+    text-align: center;
+    margin: 0 auto;
     clear: both;
     overflow: hidden;
-    width: auto!important;
-    height: 0!important;
-    font-size: 0;
-    line-height: 0;
-    margin: 0 auto!important;
-    padding: 0!important;
+}
+
+.into{
+    text-align: center;
+    color: #555;
+    margin-top: 5px;
 }
